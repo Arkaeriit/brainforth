@@ -12,5 +12,3 @@
 : > ( addr -- addr+1 ) 1+ ; 
 : < ( addr -- addr-1 ) 1- ; 
 
-: MAIN brainfuck-init , . ;
-

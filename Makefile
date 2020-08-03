@@ -10,6 +10,7 @@ BRAINFORTH.frt : brainforth.frt
 
 test : brainforth
 	./brainforth
+	cat out.frt
 
 clean :
 	rm -f BRAINFORTH.frt
