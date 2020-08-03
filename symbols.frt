@@ -18,6 +18,8 @@
 : . ( addr -- addr ) DUP C@ EMIT ;
 : + ( addr -- addr ) DUP DUP C@ 1+ SWAP C! ;
 : - ( addr -- addr ) DUP DUP C@ 1- SWAP C! ;
+: > ( addr -- addr+1 ) 1+ ; 
+: < ( addr -- addr-1 ) 1- ; 
 
-: MAIN brainfuck-init + [ . + ] . ;
+: MAIN brainfuck-init + + + + + + + + [ > + + + + [ > + + > + + + > + + + > + < < < < - ] > + > + > - > > + [ < ] < - ] > > . > - - - . + + + + + + + . . + + + . > > . < - . < . + + + . - - - - - - . - - - - - - - - . > > + . > + + . ;
 
