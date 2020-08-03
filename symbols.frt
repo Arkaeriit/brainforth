@@ -10,7 +10,17 @@
 
 
 
-: array-init ( size -- addr ) DUP HERE SWAP ALLOT CR DUP ROT 0 DO DUP 0 SWAP C! 1+ LOOP DROP ;
+: array-init ( size -- addr ) DUP HERE SWAP ALLOT DUP ROT 0 DO DUP 0 SWAP C! 1+ LOOP DROP ;
 : brainfuck-init ( -- addr )1024 array-init ;
-brainfuck-init
+
+: [ ( addr -- addr ) POSTPONE BEGIN POSTPONE DUP POSTPONE C@ POSTPONE WHILE ;
+
+: ] ( addr -- addr ) POSTPONE REPEAT ;
+
+: . ( addr -- addr ) DUP C@ EMIT ;
+
+: + ( addr -- addr ) DUP DUP C@ 1+ SWAP C! ;
+
+: MAIN brainfuck-init + + + + + + + + + + + . ;
+MAIN
 
