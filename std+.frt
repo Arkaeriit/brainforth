@@ -41,5 +41,7 @@ LOOP SWAP DROP SWAP DROP 0 0 ;
 CREATE myNumBuff 100 ALLOT
 \ convert a string to a number
 : myNum ( addr n -- n' ) DUP ROT SWAP myNumBuff SWAP COPY.ROT myNumBuff SWAP (myNum) ;
-CREATE str 100 ALLOT
+
+\ Copies n times the top of the stack
+: XDUP ( n x -- n n n ... ) 0 DO DUP LOOP ;
 
