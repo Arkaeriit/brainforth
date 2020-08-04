@@ -23,7 +23,9 @@ VARIABLE inCode
 : code-char ( fileid -- ) inCode @ IF DROP ELSE S"  ) " ROT WRITE-FILE DROP 1 inCode ! THEN ;
 : comment-char ( fileid -- ) inCode @ IF S" ( " ROT WRITE-FILE DROP 0 inCode ! ELSE DROP THEN ;
 \ Import a char to the output file
-: process-char ( fileid char -- ) DUP printable-char IF OVER code-char OVER WRITE-CHAR DROP 32 SWAP WRITE-CHAR DROP ELSE OVER comment-char SWAP WRITE-CHAR DROP THEN ;
+: process-char ( fileid char -- ) DUP printable-char 
+    IF OVER code-char OVER WRITE-CHAR DROP 32 SWAP WRITE-CHAR DROP \ Writing the char then a space
+    ELSE DUP 41 = IF DROP 93 THEN OVER comment-char SWAP WRITE-CHAR DROP THEN ; \ writting the chat if it is not a closing parenthesis
 \ main loop
 : loop-file ( filein fileout -- ) OVER READ-CHAR BEGIN 0= WHILE OVER SWAP process-char OVER READ-CHAR REPEAT DROP DROP DROP ;
 
