@@ -1,6 +1,6 @@
 \ Starting the environement
 : array-init ( size -- addr ) DUP HERE SWAP ALLOT DUP ROT 0 DO DUP 0 SWAP C! 1+ LOOP DROP ;
-: brainfuck-init ( -- addr )1024 array-init ;
+: brainfuck-init ( -- addr ) 1024 array-init ;
 
 \ Definig brainfuck symbols as forth words
 : [ ( addr -- addr ) POSTPONE BEGIN POSTPONE DUP POSTPONE C@ POSTPONE WHILE ; IMMEDIATE

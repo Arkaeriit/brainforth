@@ -9,7 +9,7 @@ BRAINFORTH.frt : brainforth.frt
 	preforth brainforth.frt BRAINFORTH.frt
 
 test : brainforth
-	./brainforth
+	./brainforth in.bfk out.frt
 	cat out.frt
 
 clean :
