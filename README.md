@@ -5,11 +5,13 @@ A Brainfuck to Forth transpiler
 Brainforth transpile Brainfuck into Forth by defining the symbols used in Bainfuck as Forth words with the same meaning. The lead to a transpiled code looking a lot like the initial code.
 
 Exemple:
+This Brainfuck code:
 ```brainfuck
 +[+.] Print all ASCII characters in increasing order
 -[-.] Print all ASCII characters in decreasing order
 ```
 
+Is transpiled into this:
 ```forth
 \ Starting the environement
 : array-init ( size -- addr ) DUP HERE SWAP ALLOT DUP ROT 0 DO DUP 0 SWAP C! 1+ LOOP DROP ;
@@ -30,6 +32,7 @@ Exemple:
 ;
 MAIN
 ```
+Note how the content of the main word is similar to the Brainfuck code.
 
 ## Usage
 ```bash
