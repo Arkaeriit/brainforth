@@ -31,7 +31,8 @@ VARIABLE inCode
 
 \ Interface
 \ Print help message
-: help ( -- ) ." Message todo" ;
+: help ( -- ) ." brainforth, a brainfuck to forth transpiler
+Usage : brainforth <input file> <output file>" CR ;
 \ Check that the correct number of arguments is given
 : testArgs ( -- ) argc 1 = IF help THEN argc 3 = INVERT IF S" Error : invalid argument number." error-exit THEN ;
 \ Open the two input files given as arguments and check if everything is OK
