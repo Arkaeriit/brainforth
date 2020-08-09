@@ -1,6 +1,5 @@
 \ #IR std+.frt
 \ #IR arguments.frt
-\ #IR debug.frt
 
 0 CONSTANT R/O
 8 BASE ! 664 CONSTANT W/O DECIMAL
