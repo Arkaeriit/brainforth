@@ -27,7 +27,8 @@ Is transpiled into this:
 : > ( addr -- addr+1 ) 1+ ;
 : < ( addr -- addr-1 ) 1- ;
 
-: MAIN ( -- ) brainfuck-init + [ + . ] ( Print all ASCII characters in incresing order )
+: MAIN ( -- ) brainfuck-init
++ [ + . ] ( Print all ASCII characters in incresing order )
 - [ - . ] ( Print all ASCII characters in decreasing order )
 ;
 MAIN
