@@ -10,7 +10,7 @@
 \ Put the oppened definitions in the output file
 : output-def ( filedid -- ) open-def SWAP copy-file ;
 \ Wrap the brainfuck program to make it compilable
-: begin-bfk ( fileid -- ) S" : MAIN ( -- ) brainfuck-init " ROT WRITE-FILE DROP ;
+: begin-bfk ( fileid -- ) DUP S" : MAIN ( -- ) brainfuck-init " ROT WRITE-FILE DROP 10 SWAP WRITE-CHAR DROP ;
 : end-bfk ( fileid -- ) DUP DUP DUP 59 SWAP WRITE-CHAR DROP 10 SWAP WRITE-CHAR DROP S" MAIN" ROT WRITE-FILE DROP 10 SWAP WRITE-CHAR DROP ;
 
 \ Reading the brainfuck input file
